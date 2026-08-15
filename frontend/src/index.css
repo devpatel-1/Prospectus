@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-body text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-brass/30 text-ink;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+}
+
+/* Blinking caret used while the prospectus is streaming in */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.typewriter-caret {
+  display: inline-block;
+  width: 0.55ch;
+  background: #b08d57;
+  margin-left: 2px;
+  animation: caret-blink 0.9s steps(1) infinite;
+}
+
+/* Prose styling for the rendered markdown prospectus */
+.prospectus-body h1 {
+  @apply font-display text-3xl md:text-4xl font-medium text-ink mb-1;
+}
+.prospectus-body h2 {
+  @apply font-display text-lg font-medium text-ink mt-6 mb-2 pb-1 border-b border-rule;
+}
+.prospectus-body p {
+  @apply text-[15px] leading-relaxed text-ink/90 mb-3;
+}
+.prospectus-body ul {
+  @apply list-disc pl-5 mb-3 space-y-1 text-[15px] text-ink/90;
+}
+.prospectus-body a {
+  @apply text-brass underline underline-offset-2;
+}
+.prospectus-body strong {
+  @apply text-ink font-semibold;
+}

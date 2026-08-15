@@ -1,0 +1,1 @@
+"""Prospectus backend application package."""
